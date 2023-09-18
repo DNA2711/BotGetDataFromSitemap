@@ -1,0 +1,77 @@
+{
+    "_id": "test",
+    "startUrl": [
+        "https://www.webscraper.io/test-sites/e-commerce/allinone/phones"
+    ],
+    "selectors": [
+        {
+            "id": "category-link",
+            "parentSelectors": [
+                "_root"
+            ],
+            "type": "SelectorLink",
+            "selector": "a.category-link",
+            "multiple": true,
+            "linkType": "linkFromHref"
+        },
+        {
+            "id": "subcategory-link",
+            "parentSelectors": [
+                "category-link"
+            ],
+            "type": "SelectorLink",
+            "selector": "a.subcategory-link",
+            "multiple": true,
+            "linkType": "linkFromHref"
+        },
+        {
+            "id": "product-link",
+            "parentSelectors": [
+                "subcategory-link"
+            ],
+            "type": "SelectorLink",
+            "selector": "a.title",
+            "multiple": true,
+            "linkType": "linkFromHref"
+        },
+        {
+            "id": "name",
+            "parentSelectors": [
+                "product-link"
+            ],
+            "type": "SelectorText",
+            "selector": "h4:nth-of-type(2)",
+            "multiple": false,
+            "regex": ""
+        },
+        {
+            "id": "description",
+            "parentSelectors": [
+                "product-link"
+            ],
+            "type": "SelectorText",
+            "selector": "p.description",
+            "multiple": false,
+            "regex": ""
+        },
+        {
+            "id": "price",
+            "parentSelectors": [
+                "product-link"
+            ],
+            "type": "SelectorText",
+            "selector": "h4.pull-right",
+            "multiple": false,
+            "regex": ""
+        },
+        {
+            "id": "image",
+            "parentSelectors": [
+                "product-link"
+            ],
+            "type": "SelectorImage",
+            "selector": "img.img-responsive",
+            "multiple": false
+        }
+    ]
+}
